@@ -11,8 +11,18 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "author": "Oleg Zarevych",
-  "license": "ISC"
+  "license": "ISC",
+  "jest": {
+    "testMatch": [
+      "**/tests/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ],
+    "reporters": [
+      "default",
+      "jest-html-reporters"
+    ]
+  }
 }
