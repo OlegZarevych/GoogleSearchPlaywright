@@ -1,4 +1,5 @@
 const { chromium } = require("playwright");
+const { MainPage } = require("../Pages/MainPage");
 const assert = require("assert");
 var config = require("../config");
 let browser;
@@ -13,7 +14,7 @@ beforeAll(async () => {
       slowMo: parseInt(config.web.sloMo, 10),
     });
   });
-  
+
   afterAll(async () => {
     await browser.close();
   });
@@ -34,7 +35,9 @@ beforeAll(async () => {
     await page.close();
   });
   
-  test("", async () => {
-  
+  test("User search text", async () => {
+    const mainPage = new MainPage(page);
+    await mainPage.openSearchPage();
+    await mainPage.search("text");
   });
   
